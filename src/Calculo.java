@@ -25,6 +25,11 @@ public class Calculo {
     private JButton a5Button;
     private JButton a2Button;
     private JButton a0Button;
+    private JButton SENButton;
+    private JButton COSButton;
+    private JButton TANButton;
+    private JButton button8;
+    private JButton POWButton;
 
     double a,b,resultado;
     String op;
@@ -187,7 +192,50 @@ public class Calculo {
                 }else if (op=="/") {
                     resultado = a / b;
                     textDisplay.setText(String.valueOf(resultado));
+                }else if (op=="^") {
+                    resultado = Math.pow(a, b);
+                    textDisplay.setText(String.valueOf(resultado));
                 }
+            }
+        });
+        SENButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double value = Double.parseDouble(textDisplay.getText());
+                double result = Math.sin(value);
+                textDisplay.setText(String.valueOf(result));
+            }
+        });
+        COSButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double value = Double.parseDouble(textDisplay.getText());
+                double result = Math.cos(value);
+                textDisplay.setText(String.valueOf(result));
+            }
+        });
+        TANButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double value = Double.parseDouble(textDisplay.getText());
+                double result = Math.tan(value);
+                textDisplay.setText(String.valueOf(result));
+            }
+        });
+        button8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double value = Double.parseDouble(textDisplay.getText());
+                double result = Math.sqrt(value);
+                textDisplay.setText(String.valueOf(result));
+            }
+        });
+        POWButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                a = Double.parseDouble(textDisplay.getText());
+                op = "^";
+                textDisplay.setText("");
             }
         });
     }
